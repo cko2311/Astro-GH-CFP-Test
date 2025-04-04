@@ -1,5 +1,27 @@
 <section class="w-full h-svh flex justify-center items-center">
   <div class="w-[90%] mx-auto">
-    <h1 class="text-center text-6xl font-bold">Github + Cloudflare Demo</h1>
+    <h1 id="split" class="text-center text-6xl font-bold overflow-hidden">
+      Github + Cloudflare Demo
+    </h1>
   </div>
 </section>
+
+<script>
+  import gsap from "gsap";
+  import SplitType from "split-type";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const text = new SplitType("#split", { types: "words, chars" });
+
+    gsap.set(text.words, {
+      y: 400,
+    });
+
+    gsap.to(text.words, {
+      y: 0,
+      duration: 1.8,
+      ease: "power4.out",
+      stagger: 0.075,
+    });
+  });
+</script>
